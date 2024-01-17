@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreeApi Integration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=DM+Serif+Display&family=Libre+Baskerville&family=Modern+Antiqua&family=PT+Sans:ital@1&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>InfoStocks by Khushal Mehrotra</h1>
+    <h2>Know Your Stocks:</h2>
+    <form action="/submit" method="post">
+      <input name="Stockname" type="text" placeholder="Organisation Name" required/>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+    <br />
+    <hr />
+    <br />
+    <% if (locals.content) { %> <% if (locals.content.length >=1 ) { %>
+    <h3>Top Stocks for your search are:</h3>
+    <% for( let index = 0; index < content.length; index++ ) { %>
+    <table>
+      <tr>
+        <th>Name</th>
+        <td><%= content[index].Name %></td>
+      </tr>
+      <tr>
+        <th>Symbol</th>
+        <td><%= content[index].Symbol %></td>
+      </tr>
+      <tr>
+        <th>Listing Date</th>
+        <td><%= content[index].ListingDate %></td>
+      </tr>
+      <tr>
+        <th>ISIN</th>
+        <td><%= content[index].ISIN %></td>
+      </tr>
+      <tr>
+        <th>Market Cap</th>
+        <td><%= content[index].MarketCap %></td>
+      </tr>
+      <tr>
+        <th>Current Price</th>
+        <td><%= content[index].CurrentPrice %></td>
+      </tr>
+      <tr>
+        <th>High/Low</th>
+        <td><%= content[index].HighLow %></td>
+      </tr>
+      <tr>
+        <th>Stock PE</th>
+        <td><%= content[index].StockPE %></td>
+      </tr>
+      <tr>
+        <th>Book Value</th>
+        <td><%= content[index].BookValue %></td>
+      </tr>
+      <tr>
+        <th>Dividend Yield</th>
+        <td><%= content[index].DividendYield %></td>
+      </tr>
+      <tr>
+        <th>ROCE</th>
+        <td><%= content[index].ROCE %></td>
+      </tr>
+      <tr>
+        <th>ROE</th>
+        <td><%= content[index].ROE %></td>
+      </tr>
+      <tr>
+        <th>Face Value</th>
+        <td><%= content[index].FaceValue %></td>
+      </tr>
+      <br />
+      <hr />
+      <br />
+    </table>
+    <% } %>  <% } else { %>
+    <h3>
+      No Stocks for your search! Try Modifying it or search for some other
+      names!
+    </h3>
+    <% } %> <% }%>
+  </body>
+</html>
